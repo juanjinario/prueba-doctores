@@ -1,0 +1,51 @@
+<header class="page-header">
+    <mat-icon class="mat-icon-md" aria-hidden="true">people</mat-icon>
+    <h3>Usuarios</h3>
+</header>
+<div class="page-content" [@fadeInOut]>
+    <mat-card>
+    <div class="row">
+        <div class="col-md-12">
+          <div class="table-responsive">
+              <mat-progress-bar mode="query" *ngIf="loadingIndicator"></mat-progress-bar>
+              <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Primer Apellido</th>
+                      <th scope="col">Segundo Apellido</th>
+                      <th scope="col">Tipo Usuario</th>
+                      <th class="text-center">
+                          <button mat-button color="primary" matTooltip="Nuevo producto" [routerLink]="['/edit-user','nuevo']">
+                              <mat-icon class="mat-button-icon">person_add</mat-icon>Nuevo Usuario
+                          </button>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngIf="!loadingIndicator && usuarios.length === 0">
+                        <td colspan="5" class="text-center">No hay registros que mostrar</td>
+                    </tr>
+                    <tr *ngFor="let usuario of usuarios">
+                      <td>{{usuario.nombre}}</td>
+                      <td>{{usuario.apellido1}}</td>
+                      <td>{{usuario.apellido2}}</td>
+                      <td>{{usuario.tipoUsuario}}</td>
+                      <td class="text-center">
+                          <button mat-icon-button matTooltip="Editar" [routerLink]="['/edit-user', usuario.key$]">
+                              <mat-icon>edit</mat-icon>
+                          </button>
+
+                          <button mat-icon-button matTooltip="Borrar" (click)="confirmDelete(usuario)">
+                              <mat-icon color="warn">delete</mat-icon>
+                          </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+        </div>
+      <table></table>
+    </div>
+  </mat-card>
+</div>

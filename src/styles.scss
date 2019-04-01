@@ -1,0 +1,68 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~ngx-toastr/toastr.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    }
+
+.page-header {
+    margin: 1em;
+    .mat-icon{
+        display: inline-block;
+        font-size: 36px;
+        height: 36px;
+        vertical-align: middle;
+        width: 36px;
+    }
+    h3{
+        display: inline-block;
+        font-size:1.25em;
+        margin: 0 0 0 8px;
+        padding: 0;
+        vertical-align: middle;
+    }
+}
+
+.page-content {
+    padding: 0 2em 2em;
+}
+
+.page-subheader {
+    margin: 0px 10px 15px 10px;
+    color: #3a4bb7;
+}
+
+// Form
+
+.form-control {
+    background: rgba(103,58,183, 0.05);
+    border: 1px solid rgba(103,58,183, 0.05);
+    border-radius: 15px;
+    transition: all 0.5s;
+}
+.form-control:focus {
+    border: 1px solid rgba(103,58,183, 0.85);
+    box-shadow: 0 0 1px rgba(103,58,183, 0.6);
+    outline: 0 none;
+  }
+
+  .form-control::placeholder {
+    opacity: 0.55; /* Firefox */
+}
+
+.form-control.ng-invalid.ng-touched, form.submited .form-control.ng-invalid{
+    border: 1px solid rgba(	244,67,54,1);
+    background: rgba(	244,67,54,0.1);
+}
+
+.form-control + .error, form.submited .form-control.ng-valid + .error{
+    display:none;
+}
+
+.form-control.ng-invalid.ng-touched + .error, form.submited .form-control + .error{
+    color: rgba(	244,67,54,1);
+    display:block;
+    font-size:0.85em;
+    padding-left:10px;
+}

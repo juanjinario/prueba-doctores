@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="app_container" class="nav-container">
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="app-name">Alfatec Test</h1>
+    <span class="example-spacer"></span>
+    <!--<mat-icon class="example-icon">favorite</mat-icon>-->
+    <!--<mat-icon class="example-icon">delete</mat-icon>-->
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #drawer class="example-sidenav mat-elevation-z3" mode="side" opened>
+    <app-nav-menu></app-nav-menu>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="example-sidenav-content">
+      <div fxLayout="column" fxFill>
+          <div id="mainContent" fxFlex="grow">
+              <router-outlet></router-outlet>
+          </div>
+      </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+</div>
