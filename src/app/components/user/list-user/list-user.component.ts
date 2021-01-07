@@ -6,7 +6,7 @@ import { Professional } from '../../../models/professional.model';
 import { Patient } from '../../../models/patient.model';
 import { User } from '../../../models/user.model';
 import { UsersService } from '../../../services/users.service';
-import {MatSnackBar} from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { finalize } from 'rxjs/operators'
 
 @Component({
