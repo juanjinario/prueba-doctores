@@ -67,7 +67,7 @@ export class EditUserComponent implements OnInit {
 
     if (this.esNuevo){
       this.usersService.nuevoUsuario(this.usuario).subscribe(
-        data =>{
+        (data: any) =>{
         this.router.navigate(['edit-user',data.name]);
         this.showSuccess('Creación',`El usuario ${this.usuario.nombre} ha sido creado`)},
         error => console.error(error));
