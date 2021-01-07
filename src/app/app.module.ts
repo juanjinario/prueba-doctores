@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 
 // Rutas
@@ -38,6 +39,7 @@ import { EditUserComponent } from './components/user/edit-user/edit-user.compone
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
+    FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot()
   ],

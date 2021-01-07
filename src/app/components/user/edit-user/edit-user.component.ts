@@ -14,12 +14,11 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './edit-user.component.html',
   styleUrls: ['./edit-user.component.scss'],
   animations: [fadeInOut]
-  
+
 })
 export class EditUserComponent implements OnInit {
-  @ViewChild('form')
-  private form: NgForm;
-    
+  @ViewChild('form', {static: false}) form: NgForm;
+
   esNuevo:boolean = false;
   tiposUsuario: string[] = ['Paciente', 'Profesional'];
   usuario:any = { tipoUsuario: 'Paciente',pasaporte:"" , nombre: "", apellido1: "", apellido2: "", calle:"", numero:"", ciudad:"" }
@@ -31,7 +30,7 @@ export class EditUserComponent implements OnInit {
                private router: Router,
                private activateRoute: ActivatedRoute,
                private toastr: ToastrService) {
-                 this.loadingIndicator = true; 
+                 this.loadingIndicator = true;
                  this.activateRoute.params
                  .subscribe( parametros =>{
                   this.key = parametros['id'];
@@ -40,7 +39,7 @@ export class EditUserComponent implements OnInit {
                     this.obtenerUsuario();
                   }else{
                     this.loadingIndicator = false;
-                  } 
+                  }
                  });
                }
 
@@ -50,8 +49,8 @@ export class EditUserComponent implements OnInit {
   obtenerUsuario(){
     this.usersService.obtenerUsuario(this.key)
     .pipe( finalize( () => this.loadingIndicator = false))
-    .subscribe( 
-      data =>{  
+    .subscribe(
+      data =>{
         this.usuario = data;
         this.nombre = `${this.usuario.nombre} ${this.usuario.apellido1}`; },
       error => console.error(error));
@@ -67,14 +66,14 @@ export class EditUserComponent implements OnInit {
   }
 
     if (this.esNuevo){
-      this.usersService.nuevoUsuario(this.usuario).subscribe( 
-        data =>{  
+      this.usersService.nuevoUsuario(this.usuario).subscribe(
+        data =>{
         this.router.navigate(['edit-user',data.name]);
         this.showSuccess('Creación',`El usuario ${this.usuario.nombre} ha sido creado`)},
         error => console.error(error));
     }else{
-      this.usersService.actualizarUsuario(this.usuario,this.key).subscribe( 
-        data =>{  
+      this.usersService.actualizarUsuario(this.usuario,this.key).subscribe(
+        data =>{
           this.showSuccess('Actualización',`El usuario ${this.usuario.nombre} ha sido editado`); },
         error => console.error(error));
     }
