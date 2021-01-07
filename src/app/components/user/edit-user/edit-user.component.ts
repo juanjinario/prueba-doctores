@@ -17,7 +17,7 @@ import { ToastrService } from 'ngx-toastr';
 
 })
 export class EditUserComponent implements OnInit {
-  @ViewChild('form', {static: false}) form: NgForm;
+  @ViewChild('form') form: NgForm;
 
   esNuevo:boolean = false;
   tiposUsuario: string[] = ['Paciente', 'Profesional'];
